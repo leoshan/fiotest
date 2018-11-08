@@ -32,6 +32,10 @@ do
 	delaydata=`grep -w lat $i | grep -w avg | awk -F',' '{print $3}'|awk -F'=' '{print $2}'`
 	delayunit=`grep -w lat $i | head -n 1 | awk -F'(' '{print $2}' |  awk -F')' '{print $1}'`
 
+	clat_50=`grep 50.00th $i | awk -F',' '{print $3}' |awk -F'[' '{print $2}'|awk -F']' '{print $1}'`
+	clat_90=`grep 90.00th $i | awk -F',' '{print $3}' |awk -F'[' '{print $2}'|awk -F']' '{print $1}'`
+	clat_99=`grep 99.00th $i | awk -F',' '{print $1}' |awk -F'[' '{print $2}'|awk -F']' '{print $1}'`
+	clat_9995=`grep 99.95th $i | awk -F',' '{print $4}' |awk -F'[' '{print $2}'|awk -F']' '{print $1}'`
 	if [ $bwunit = "MB/s" ];then
 		bwdata=`echo "$bwdata*1000"|bc`;
 	fi
@@ -40,7 +44,7 @@ do
 		delaydata=`echo "$delaydata*1000"|bc`;
 	fi
 	
-	printf "[ipos bw[KBps] delay[usec]] %-20s %-20s %-20s" $iops $bwdata $delaydata >> fio_res_output.txt	
+	printf "%-15s %-15s %-15s %-8s %-8s %-8s %-8s" $iops $bwdata $delaydata $clat_50 $clat_90 $clat_99 $clat_9995 >> fio_res_output.txt	
 	printf "%-50s" $i >> fio_res_output.txt
 
 	echo  >> fio_res_output.txt
