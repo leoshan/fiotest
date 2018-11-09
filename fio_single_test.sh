@@ -13,18 +13,19 @@ case $sight in
         echo "A_single_lun" $index
 	cp fio_single_lun.fio fio_work.fio
         ;;
- B_single_vm)
+ B_single_vm_2lun)
         echo "B_single_vm" $index
-	cp fio_sdi_100.fio fio_work.fio
+	cp fio_single_vm_2lun.fio fio_work.fio
         ;;
  C_two_vm)
         echo "C_two_vm" $index
-	cp fio_vm_100.fio fio_work.fio
+	cp fio_two_vm.fio fio_work.fio
         ;;
  
  *)
-        echo "Usage: $name [A/B/C_single_lun/single_vm/two_vm rwtype blocksize iodep runtime]"
-        exit 1
+        
+        echo "Usage: $name [A_single_lun/B_single_vm/C_two_vm rwtype blocksize iodep runtime]"
+	exit 1
         ;;
 esac
 
