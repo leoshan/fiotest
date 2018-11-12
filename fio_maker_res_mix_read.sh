@@ -50,7 +50,7 @@ do
 		delaydata=`echo "$delaydata*1000"|bc`;
 	fi
 	
-	printf "%-15s %-15s %-15s %-8s %-8s %-8s %-s" $iops $bwdata $delaydata $clat_50 $clat_90 $clat_99 $clat_9995 >> fio_res_output_mix_read.txt	
+	printf "%-15s %-15s %-15s %-8s %-8s %-8s %-8s" $iops $bwdata $delaydata $clat_50 $clat_90 $clat_99 $clat_9995 >> fio_res_output_mix_read.txt	
 	printf "%-50s" $i >> fio_res_output_mix_read.txt
 
 	echo  >> fio_res_output_mix_read.txt
