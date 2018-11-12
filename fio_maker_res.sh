@@ -17,7 +17,7 @@ delaydata=0
 delayunit=0
 
 rm -rf fio_res_output.txt
-for i in `ls fio_res*`
+for i in `ls fio_res*_0_*`
 do
 	#printf "%-50s" $i >> fio_res_output.txt
 	#printf "%-20s" `grep iops $i | awk -F',' '{print $3}'` >> fio_res_output.txt
@@ -49,5 +49,3 @@ do
 
 	echo  >> fio_res_output.txt
 done
-
-cat fio_res_output.txt
