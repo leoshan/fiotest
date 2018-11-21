@@ -31,7 +31,7 @@ filename=/dev/vdf
 filename=/dev/vdg
 
 [job7]
-filename=/dev/ddh
+filename=/dev/vdh
 
 [job8]
 filename=/dev/vdi
